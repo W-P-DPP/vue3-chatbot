@@ -28,8 +28,7 @@ await pineconeClient.init({
 });
 const pineconeIndex = pineconeClient.Index(process.env.PINECONE_INDEX);
 
-const proxyUrl = "http://127.0.0.1:10809";
-const agent = new HttpsProxyAgent.HttpsProxyAgent(proxyUrl);
+const agent = new HttpsProxyAgent.HttpsProxyAgent(process.env.http_proxy);
 try {
   const openAIEmbeddings = new OpenAIEmbeddings(undefined, {
     baseOptions: {

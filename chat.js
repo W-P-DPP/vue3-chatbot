@@ -8,9 +8,7 @@ import { PineconeStore } from "langchain/vectorstores/pinecone";
 import HttpsProxyAgent from "https-proxy-agent";
 import dotenv from "dotenv";
 dotenv.config();
-
-const proxyUrl = "http://127.0.0.1:10809";
-const agent = new HttpsProxyAgent.HttpsProxyAgent(proxyUrl);
+const agent = new HttpsProxyAgent.HttpsProxyAgent(process.env.http_proxy);
 
 const model = new OpenAI(
   {
@@ -32,21 +30,6 @@ const pineconeStore = await PineconeStore.fromExistingIndex(new OpenAIEmbeddings
 });
 
 const chains = ConversationalRetrievalQAChain.fromLLM(model, pineconeStore.asRetriever());
-// try {
-//   const res = await chains.call({
-//     question: "怎么监听数据变化",
-//     chat_history: [],
-//   });
-//   console.log(res);
-
-//   const secondRes = await chains.call({
-//     question: "能给一个demo吗",
-//     chat_history: () => ["怎么监听数据变化", res.text],
-//   });
-//   console.log(secondRes);
-// } catch (error) {
-//   console.log(error);
-// }
 
 export async function callChain(msg, history = []) {
   const res = await chains._call({

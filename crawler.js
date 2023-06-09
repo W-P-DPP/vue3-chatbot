@@ -1,9 +1,8 @@
 /** @format */
-
-const axios = require("axios");
-const cheerio = require("cheerio");
-const turndown = require("turndown");
-const fs = require("fs");
+import axios from "axios";
+import cheerio from "cheerio";
+import turndown from "turndown";
+import fs from "fs";
 const axiosInstance = axios.create();
 const turndownService = new turndown();
 
