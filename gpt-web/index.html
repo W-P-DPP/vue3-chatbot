@@ -1,0 +1,51 @@
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <script src="https://unpkg.com/vue@next"></script>
+    <!-- import CSS -->
+    <link rel="stylesheet" href="./src/css/index.css">
+    <link rel="stylesheet" href="./src/css/header.css">
+    <link rel="stylesheet" href="./src/css/contianer.css">
+    <link rel="stylesheet" href="./src/css/footer.css">
+    <link rel="stylesheet" href="https://unpkg.com/element-plus/dist/index.css">
+    <!-- import JavaScript -->
+    <script src="https://unpkg.com/element-plus"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <!-- <script src="https://cdn.bootcss.com/vConsole/3.3.4/vconsole.min.js"></script> -->
+    <title>GPT-WEB</title>
+</head>
+
+<body>
+    <div id="app">
+        <div class="main">
+            <div class="header">
+                <div class="title">DPP-GPT</div>
+            </div>
+            <div class="container">
+                <div class="row" v-for="(item,index) in msglist" :key="index"
+                    :style="{'flex-direction':item.to == 'left'?'unset':'row-reverse'}">
+                    <div class="avatar">
+                        <el-avatar src="./src/assets/avatar.png" />
+                    </div>
+                    <div class="msg">{{item.msg}}</div>
+                </div>
+            </div>
+            <div class="footer">
+                <el-input v-model="input"></el-input>
+                <el-button round @click="sendMsg">发送</el-button>
+            </div>
+        </div>
+    </div>
+    <script type="module">
+        import { init } from './src/js/index.js'
+        init()
+        // var vConsole = new VConsole();
+
+
+    </script>
+</body>
+
+</html>

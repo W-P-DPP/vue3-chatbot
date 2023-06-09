@@ -1,0 +1,18 @@
+/** @format */
+
+.container .row {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row-reverse;
+  margin-bottom: 15px;
+}
+.container .row .avatar {
+  margin: 0 5px;
+}
+.container .row .msg {
+  background-color: white;
+  padding: 6px 10px;
+  border-radius: 5px;
+  max-width: 55vw;
+  word-wrap: break-word;
+}

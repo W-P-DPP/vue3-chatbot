@@ -1,0 +1,23 @@
+{
+  "name": "vue3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@pinecone-database/pinecone": "^0.1.6",
+    "axios": "^1.4.0",
+    "cheerio": "^1.0.0-rc.12",
+    "dotenv": "^16.1.4",
+    "express": "^4.18.2",
+    "https-proxy-agent": "^7.0.0",
+    "langchain": "^0.0.92",
+    "turndown": "^7.1.2"
+  }
+}
